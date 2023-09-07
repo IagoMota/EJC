@@ -3,24 +3,39 @@ const allOptions = document.querySelectorAll(".next");
 const previousBtn = document.getElementById("previous");
 
 const disciplines = {
-  
+  Economia: 0,
+  "Engenharia Civil": 0,
+  Marketing: 0,
+  "Licenciatura em Letras": 0,
+  Administração: 0,
+  Psicologia: 0,
 };
 
+const answers = {
+  "question-1": "",
+  "question-2": "",
+  "question-3": "",
+  "question-4": "",
+  "question-5": "",
+  "question-6": "",
+  "question-7": "",
+  "question-8": "",
+};
 
 const changeToNext = (e) => {
-  if (counter != 7) {
-    disciplines[e.target.firstElementChild.innerHTML]++
-    const parent = e.target.parentNode;    
-    const nextQuestion = document.getElementById(`question-${++counter}`);
+  const currentQuestion = e.target.parentNode;
+  if (counter < 8) {
+    currentQuestion.classList.remove("showing");
+    currentQuestion.classList.add("not-showing");
 
-
-    parent.classList.remove("showing");
-    parent.classList.add("not-showing");
-
+    const nextQuestion = (function () {
+      if (counter < 8) return document.getElementById(`question-${++counter}`);
+    })();
     nextQuestion.classList.remove("not-showing");
     nextQuestion.classList.add("showing");
-    console.log(disciplines)
   }
+  answers[currentQuestion.id] = e.target.firstElementChild.innerHTML;
+  console.log(answers);
 };
 const changeToPrevious = (e) => {
   if (counter >= 2) {
