@@ -2,25 +2,6 @@ var counter = 1;
 const allOptions = document.querySelectorAll(".next");
 const previousBtn = document.getElementById("previous");
 
-const disciplines = {
-  Economia: 0,
-  "Engenharia Civil": 0,
-  Marketing: 0,
-  "Licenciatura em Letras": 0,
-  Administração: 0,
-  Psicologia: 0,
-};
-
-const answers = {
-  "question-1": "",
-  "question-2": "",
-  "question-3": "",
-  "question-4": "",
-  "question-5": "",
-  "question-6": "",
-  "question-7": "",
-  "question-8": "",
-};
 
 const changeToNext = (e) => {
   const currentQuestion = e.target.parentNode;
@@ -51,6 +32,16 @@ const changeToPrevious = (e) => {
   }
 };
 
+const answers = {
+  "question-1": "",
+  "question-2": "",
+  "question-3": "",
+  "question-4": "",
+  "question-5": "",
+  "question-6": "",
+  "question-7": "",
+  "question-8": "",
+};
 for (option of allOptions) {
   option.onclick = changeToNext;
 }
